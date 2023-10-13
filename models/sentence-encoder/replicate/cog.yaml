@@ -1,0 +1,11 @@
+build:
+  gpu: true
+  cuda: "11.8"
+  python_version: "3.10"
+  python_packages:
+    - "tensorflow==2.13.0"
+    - "tensorflow_hub"
+    - "numpy"
+    - "huggingface_hub"
+
+predict: "predict.py:Predictor"

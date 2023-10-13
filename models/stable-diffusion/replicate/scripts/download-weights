@@ -1,0 +1,18 @@
+import os
+import shutil
+import sys
+
+from diffusers import StableDiffusionPipeline
+
+sys.append('.')
+
+from predict import MODEL_CACHE, MODEL_ID
+
+if os.path.exists(MODEL_CACHE):
+    shutil.rmtree(MODEL_CACHE)
+os.makedirs(MODEL_CACHE)
+
+pipe = StableDiffusionPipeline.from_pretrained(
+    MODEL_ID,
+    cache=MODEL_CACHE
+)

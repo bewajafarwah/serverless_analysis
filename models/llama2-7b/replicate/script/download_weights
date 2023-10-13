@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+import os
+import shutil
+import sys
+
+import torch
+from transformers import  LlamaForCausalLM, LlamaTokenizer
+
+sys.path.append('.')
+
+from predict import MODEL_ID, MODEL_CACHE, auth_secret
+
+if os.path.exists(MODEL_CACHE):
+    shutil.rmtree(MODEL_CACHE)
+os.makedirs(MODEL_CACHE, exist_ok=True)
+
+
+
+model = LlamaForCausalLM.from_pretrained(
+            MODEL_ID, 
+            use_auth_token=auth_secret, 
+            torch_dtype=torch.float16,
+            cache_dir=MODEL_CACHE,
+        )
+        
+tokenizer = LlamaTokenizer.from_pretrained(
+            MODEL_ID, 
+            use_auth_token=auth_secret,
+            cache_dir=MODEL_CACHE,
+        )

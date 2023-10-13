@@ -1,0 +1,17 @@
+environment_variables: {}
+data_dir: data
+external_package_dirs: []
+model_metadata: {}
+model_name: encoder
+python_version: py311
+requirements: 
+- tensorflow==2.13.0
+- tensorflow_hub
+- numpy
+resources:
+  accelerator: T4
+  cpu: '2'
+  memory: 12Gi
+  use_gpu: true
+secrets: {}
+system_packages: []
